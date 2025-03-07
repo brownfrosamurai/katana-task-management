@@ -77,39 +77,6 @@ The API will be available at:
 
 ---
 
-## **📦 Deployment with Docker**
-
-### **1️⃣ Build and Run the Container**
-```bash
-docker build -t flask-task-api .
-docker run -p 5000:5000 --env-file .env flask-task-api
-```
-
-### **2️⃣ Docker Compose (For Multi-Service Setup)**
-Create `docker-compose.yml`:
-```yaml
-version: '3'
-services:
-  app:
-    build: .
-    ports:
-      - "5000:5000"
-    env_file:
-      - .env
-    depends_on:
-      - db
-  db:
-    image: postgres:latest
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: taskdb
-```
-Run with:
-```bash
-docker-compose up --build
-```
-
 ---
 
 ## **🔍 Testing**
